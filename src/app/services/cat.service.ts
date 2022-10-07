@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
-import { IBreed, ICat } from '../store/interface';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IBreed } from '../store/interface';
 
 @Injectable()
 export class CatService {
@@ -14,5 +14,4 @@ export class CatService {
   getCats(breedId:string, selectAmount: number):Observable<any> {
     return this.http.get<any>(`https://api.thecatapi.com/v1/images/search`, { params: { 'breed_ids': breedId, 'limit': selectAmount, }, });
   }
-  // getAllCats()
 }

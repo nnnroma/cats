@@ -17,10 +17,17 @@ import { MenuComponent } from './components/cats/menu/menu.component';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MatSelectModule } from '@angular/material/select';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CatsResolver } from './resolver/cats.resolver';
 
 const appRoutes: Routes = [
-  {path: '', component: CatsComponent}
+  {
+  path: '', 
+  component: CatsComponent,
+  resolve: {
+    items: CatsResolver
+  }
+},
 ]
 
 @NgModule({

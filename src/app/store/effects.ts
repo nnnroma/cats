@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, mergeMap, of, switchMap, tap } from "rxjs";
+import { map, switchMap, tap } from "rxjs";
 import { CatService } from "../services/cat.service";
 import { breedsLoaded, catsLoaded, getBreeds, getCatsAction } from "./action";
 
@@ -13,12 +13,9 @@ export class CatsEffects {
 
     getBreeds$ = createEffect(() => this.actions$.pipe(
         ofType(getBreeds),
-        // tap(() => console.log('work')),
-        // switchMap(({ hi })=> {
         switchMap(()=> {
             return this.catService.getBreeds().pipe(
                 map(breeds => breedsLoaded({breeds})),
-                // tap((r)=> console.log(r, 'done') ),
             )   
         })
     ))
@@ -27,10 +24,8 @@ export class CatsEffects {
         ofType(getCatsAction),
         switchMap(({ breedId, selectAmount })=> {
             return this.catService.getCats(breedId, selectAmount).pipe(
-                tap(v => console.log('effect', v)),
                 map(cats => catsLoaded({ cats: cats }))
             )
         })
     ))
-
 }

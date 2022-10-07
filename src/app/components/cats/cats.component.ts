@@ -14,12 +14,12 @@ export class CatsComponent  {
 
   breedsList$ = this.store.pipe(select(selectBreeds));
 
-  show() {
-    this.store.dispatch(getBreeds())
-    this.store.select(selectBreeds).subscribe((v)=> {
-      console.log(v)
-    })
-  }
+  // show() {
+  //   this.store.dispatch(getBreeds())
+  //   this.store.select(selectBreeds).subscribe((v)=> {
+  //     console.log(v)
+  //   })
+  // }
 
   cats$ = this.store.select(selectCats)
 }
