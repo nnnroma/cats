@@ -1,4 +1,4 @@
-<app-menu class="app-menu"></app-menu>
+<app-menu class="app-menu" [resolveBreeds]="resolveBreeds"></app-menu>
 <div class="cats-inner">
     <div class="ctas-item" *ngFor="let cat of cats$ | async" >
         <img [src]="cat.url" alt="" class="cats-img">

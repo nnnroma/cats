@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { getBreeds, getCatsAction } from 'src/app/store/action';
+import { getCatsAction } from 'src/app/store/action';
 import { IBreed } from 'src/app/store/interface';
-import { selectBreeds, selectCats } from 'src/app/store/selector';
+import { selectBreeds } from 'src/app/store/selector';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,17 +13,19 @@ import { selectBreeds, selectCats } from 'src/app/store/selector';
     './menu.component.css',
  ]
 })
-export class MenuComponent implements OnInit {
 
-  constructor(private store: Store) { }
+export class MenuComponent implements OnInit {
+  @Input() resolveBreeds!:IBreed[]
+  constructor(
+    private store: Store,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
-    this.store.dispatch(getBreeds());
     this.store.dispatch(getCatsAction({breedId: this.breedId, selectAmount: this.selectAmount}));
   }
   
   breeds$: Observable<IBreed[]> = this.store.select(selectBreeds);
-  cats$ = this.store.select(selectCats)
 
   selectAmount:number = 10;
 

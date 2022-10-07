@@ -1,19 +1,18 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { map, Observable } from "rxjs";
-// import { CatService } from "../services/cat.service";
-// import { getBreeds } from "../store/action";
+import { Observable } from "rxjs";
 import { IBreed } from "../store/interface";
-import { selectBreeds } from "../store/selector";
+import { CatService } from "../services/cat.service";
 
 @Injectable({providedIn: 'root'})
-export class CatsResolver implements Resolve<boolean> {
-    constructor(private store: Store) {
+export class CatsResolver implements Resolve<IBreed[]> {
+    constructor(
+      private store: Store,
+      private catService: CatService  
+    ) {
     }
-  
-    resolve(route: ActivatedRouteSnapshot): Observable<boolean> {
-      return this.store.select(selectBreeds)
-        .pipe(map((items: IBreed[]) => items.length !== 0));
+    resolve(route: ActivatedRouteSnapshot): Observable<IBreed[]> {
+      return this.catService.getBreeds()
     }
   }

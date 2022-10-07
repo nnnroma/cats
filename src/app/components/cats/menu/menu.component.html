@@ -4,7 +4,7 @@
   (selectionChange)="onSelect($event)"
   >
     <mat-option 
-    *ngFor="let breed of breeds$ | async"
+    *ngFor="let breed of resolveBreeds"
     [value]="breed.id"
     >{{breed.name}}
   </mat-option>

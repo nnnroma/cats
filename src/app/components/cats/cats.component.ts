@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
-import { getBreeds } from 'src/app/store/action'; 
-import { selectBreeds, selectCats } from 'src/app/store/selector';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { selectCats } from 'src/app/store/selector';
+import { ActivatedRoute } from '@angular/router'; 
+import { IBreed } from 'src/app/store/interface';
 
 @Component({
   selector: 'app-cats',
@@ -10,16 +11,16 @@ import { selectBreeds, selectCats } from 'src/app/store/selector';
 })
 export class CatsComponent  {
 
-  constructor(private store: Store) { }
+  constructor(
+    private store: Store,
+    private activatedRoute: ActivatedRoute
+  ) { 
+    this.activatedRoute.data.subscribe(({items}) => {
+      this.resolveBreeds = items;
+    })
+  }
 
-  breedsList$ = this.store.pipe(select(selectBreeds));
-
-  // show() {
-  //   this.store.dispatch(getBreeds())
-  //   this.store.select(selectBreeds).subscribe((v)=> {
-  //     console.log(v)
-  //   })
-  // }
+  resolveBreeds!: IBreed[];
 
   cats$ = this.store.select(selectCats)
 }
