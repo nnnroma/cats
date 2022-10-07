@@ -1,0 +1,11 @@
+.mat-form-field {
+    border: 1px solid green;
+    max-width: 400px;
+    width: 100%;
+}
+
+.mat-paginator {
+    border: 1px solid red;
+    max-width: 400px;
+    width: 100%;
+}

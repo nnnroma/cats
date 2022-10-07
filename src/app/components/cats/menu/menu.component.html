@@ -1,0 +1,24 @@
+<mat-form-field appearance="fill" class="mat-form-field">
+  <mat-label>Select an option</mat-label>
+  <mat-select disableRipple 
+  (selectionChange)="onSelect($event)"
+  >
+    <mat-option 
+    *ngFor="let breed of breeds$ | async"
+    [value]="breed.id"
+    >{{breed.name}}
+  </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-paginator
+  (page)="selectPaginator($event)"
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page"
+  class="mat-paginator"
+  >
+</mat-paginator>
+
+
