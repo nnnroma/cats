@@ -8,10 +8,10 @@ export class CatService {
   constructor(private http: HttpClient) { }
 
   getBreeds():Observable<IBreed[]> {
-    return this.http.get<IBreed[]>(`https://api.thecatapi.com/v1/breeds/`);
+    return this.http.get<IBreed[]>('https://api.thecatapi.com/v1/breeds/');
   }
 
   getCats(breedId:string, selectAmount: number):Observable<any> {
-    return this.http.get<any>(`https://api.thecatapi.com/v1/images/search`, { params: { 'breed_ids': breedId, 'limit': selectAmount, }, });
+    return this.http.get<any>('https://api.thecatapi.com/v1/images/search', { params: { 'breed_ids': breedId, 'limit': selectAmount } });
   }
 }

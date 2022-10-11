@@ -1,6 +1,6 @@
-import { IBreed, ICat } from "./interface";
-import * as actions from './action'
-import { createReducer, on } from "@ngrx/store";
+import { IBreed, ICat } from './interface';
+import * as actions from './action';
+import { createReducer, on } from '@ngrx/store';
 
 export interface CatState {
     breeds: IBreed[];
@@ -20,6 +20,6 @@ export const breedReducer = createReducer(
     ),
     on(
         actions.catsLoaded,
-        (state, {cats}) => ({...state, cats})
-    )
-)
+        (state, { cats }) => ({ ...state, cats }),
+    ),
+);

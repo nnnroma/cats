@@ -1,5 +1,5 @@
-import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { CatState } from "./reducer";
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { CatState } from './reducer';
 
 export const catsSelectorKey = 'breeds';
 export const catsFeatureSelector = createFeatureSelector<CatState>(catsSelectorKey);
