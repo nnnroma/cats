@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Resolve } from "@angular/router";
-import { Store } from "@ngrx/store";
+// import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { IBreed } from "../store/interface";
 import { CatService } from "../services/cat.service";
@@ -8,7 +8,7 @@ import { CatService } from "../services/cat.service";
 @Injectable({providedIn: 'root'})
 export class CatsResolver implements Resolve<IBreed[]> {
     constructor(
-      private store: Store,
+      // private store: Store,
       private catService: CatService  
     ) {
     }

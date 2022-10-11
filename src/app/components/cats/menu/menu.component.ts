@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
   @Input() resolveBreeds!:IBreed[]
   constructor(
     private store: Store,
-    private activatedRoute: ActivatedRoute
+    // private activatedRoute: ActivatedRoute
     ) { }
 
   ngOnInit(): void {
