@@ -4,18 +4,18 @@
   (selectionChange)="onSelect($event)"
   >
     <mat-option 
-    *ngFor="let breed of resolveBreeds"
-    [value]="breed.id"
-    >{{breed.name}}
-  </mat-option>
+      *ngFor="let breed of resolveBreeds"
+      [value]="breed.id"
+      >{{breed.name}}
+    </mat-option>
   </mat-select>
 </mat-form-field>
 
 <mat-paginator
   (page)="selectPaginator($event)"
-  [length]="100"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25, 100]"
+  [length]="lengthNumber"
+  [pageSize]="sizeNumber"
+  [pageSizeOptions]="[firstOption, twoOption, threeOption, fourOption]"
   aria-label="Select page"
   class="mat-paginator"
   >

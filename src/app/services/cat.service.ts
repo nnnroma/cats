@@ -11,7 +11,7 @@ export class CatService {
     return this.http.get<IBreed[]>('https://api.thecatapi.com/v1/breeds/');
   }
 
-  getCats(breedId:string, selectAmount: number):Observable<any> {
+  getCats(breedId:string, selectAmount: number): Observable<any> {
     return this.http.get<any>('https://api.thecatapi.com/v1/images/search', { params: { 'breed_ids': breedId, 'limit': selectAmount } });
   }
 }

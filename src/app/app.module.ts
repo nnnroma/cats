@@ -49,10 +49,10 @@ const appRoutes: Routes = [
   ],
   providers: [
     {
-    provide: HTTP_INTERCEPTORS,
-    useClass: InterceptorService,
-    multi: true,
-  },
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true,
+    },
     CatService,
 ],
   bootstrap: [AppComponent],

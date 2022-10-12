@@ -6,11 +6,11 @@ import { CatService } from '../services/cat.service';
 
 @Injectable({ providedIn: 'root' })
 export class CatsResolver implements Resolve<IBreed[]> {
-    constructor(
-      private catService: CatService,  
-    ) {
-    }
-    resolve(route: ActivatedRouteSnapshot): Observable<IBreed[]> {
-      return this.catService.getBreeds();
-    }
+  constructor(
+    private catService: CatService,  
+  ) {
   }
+  resolve(route: ActivatedRouteSnapshot): Observable<IBreed[]> {
+    return this.catService.getBreeds();
+  }
+}

@@ -10,17 +10,16 @@ import { IBreed } from 'src/app/store/interface';
   styleUrls: ['./cats.component.css'],
 })
 export class CatsComponent  {
-
+  resolveBreeds!: IBreed[];
+  cats$ = this.store.select(selectCats);
+  
   constructor(
     private store: Store,
     private activatedRoute: ActivatedRoute,
   ) { 
     this.activatedRoute.data.subscribe(({ items }) => {
       this.resolveBreeds = items;
-    });
+    }).unsubscribe();
   }
 
-  resolveBreeds!: IBreed[];
-
-  cats$ = this.store.select(selectCats);
 }
