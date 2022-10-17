@@ -1,0 +1,29 @@
+.cats-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app-menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ctas-item {
+  max-width: 320px;
+  width: 100%;
+  height: 320px;
+  margin: 5px;
+  position: relative;
+}
+
+.cats-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
